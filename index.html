@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSUnibo</title>
+  <style>
+    :root {
+      --b: #fbf1c7;
+      --b2: #bdae93;
+      --f: #282828;
+      --d: #d65d0e;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --b: #282828;
+        --b2: #7c6f64;
+        --f: #fbf1c7;
+        --d: #fe8019;
+      }
+    }
+
+    @media (max-width: 880px) {
+      body {
+        line-height: 1.5rem;
+      }
+
+      a {
+        width: 100vw !important;
+      }
+    }
+
+    body {
+      color: var(--f);
+      background: var(--b);
+      font-size: 16px;
+      text-align: center;
+      font-family: monospace;
+      margin: 0;
+    }
+
+    h1 {
+      padding-top: 5vh;
+      font-size: 42px;
+    }
+
+    hr {
+      width: 100%;
+    }
+
+    b {
+      color: var(--d);
+    }
+
+    a {
+      color: inherit;
+      transition: 0.2s;
+    }
+
+    a:hover {
+      scale: 1.05;
+      background-color: var(--d);
+      color: var(--f) !important;
+    }
+  </style>
+</head>
+
+<body>
+  TEST
+</body>
+
+</html>
