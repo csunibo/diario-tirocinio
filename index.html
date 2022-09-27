@@ -132,7 +132,34 @@
       font-size: 30px;
       padding-top: 2%;
     }
+
+    input[type='radio'] {
+      box-sizing: border-box;
+      appearance: none;
+      background: white;
+      outline: 2px solid #333;
+      border: 3px solid white;
+      width: 16px;
+      height: 16px;
+    }
   </style>
+
+  <script>
+
+    let totalHours = parseInt(localStorage.getItem("hours"))
+    let selectedhour = 0
+
+    function addValue(hour) {
+      selectedhour = parseInt(hour)
+    }
+
+    function saveValue() {
+      if (!localStorage.getItem("hours"))
+        localStorage.setItem("hours", "0")
+      localStorage.setItem("hours", parseInt(localStorage.getItem("hours")) + selectedhour);
+      document.getElementById("total").innerHTML = totalHours
+    }
+  </script>
 </head>
 
 <body>
@@ -140,34 +167,34 @@
     <h1>Calcola ore tirocinio</h1>
     <div class="areaHour">
       <span>Numero di ore condotte </span>
-      <div class="selectHour">
-        <button id="1" type="radio" class="item">1</button>
-        <button id="2" type="radio" class="item">2</button>
-        <button id="3" type="radio" class="item">3</button>
-        <button id="4" type="radio" class="item">4</button>
-        <button id="5" type="radio" class="item">5</button>
-        <button id="6" type="radio" class="item">6</button>
-        <button id="7" type="radio" class="item">7</button>
-        <button id="8" type="radio" class="item">8</button>
+      <div id="addHour" class="selectHour">
+        <button onclick="addValue(1)" name="hour" id="1" type="radio" class="item">1</button>
+        <button onclick="addValue(2)" name="hour" id="2" type="radio" class="item">2</button>
+        <button onclick="addValue(3)" name="hour" id="3" type="radio" class="item">3</button>
+        <button onclick="addValue(4)" name="hour" id="4" type="radio" class="item">4</button>
+        <button onclick="addValue(5)" name="hour" id="5" type="radio" class="item">5</button>
+        <button onclick="addValue(6)" name="hour" id="6" type="radio" class="item">6</button>
+        <button onclick="addValue(7)" name="hour" id="7" type="radio" class="item">7</button>
+        <button onclick="addValue(8)" name="hour" id="8" type="radio" class="item">8</button>
       </div>
     </div>
     <div class="areaHour">
       <span>Numero di ore da rimuovere</span>
-      <div class="selectHour">
-        <button id="1" type="radio" class="item">1</button>
-        <button id="2" type="radio" class="item">2</button>
-        <button id="3" type="radio" class="item">3</button>
-        <button id="4" type="radio" class="item">4</button>
-        <button id="5" type="radio" class="item">5</button>
-        <button id="6" type="radio" class="item">6</button>
-        <button id="7" type="radio" class="item">7</button>
-        <button id="8" type="radio" class="item">8</button>
+      <div id="removeHour" class="selectHour">
+        <button onclick="addValue(-1)" name="hour" id="1" type="radio" class="item">1</button>
+        <button onclick="addValue(-2)" name="hour" id="2" type="radio" class="item">2</button>
+        <button onclick="addValue(-3)" name="hour" id="3" type="radio" class="item">3</button>
+        <button onclick="addValue(-4)" name="hour" id="4" type="radio" class="item">4</button>
+        <button onclick="addValue(-5)" name="hour" id="5" type="radio" class="item">5</button>
+        <button onclick="addValue(-6)" name="hour" id="6" type="radio" class="item">6</button>
+        <button onclick="addValue(-7)" name="hour" id="7" type="radio" class="item">7</button>
+        <button onclick="addValue(-8)" name="hour" id="8" type="radio" class="item">8</button>
       </div>
     </div>
     <div style="padding: 2%;">
-      <button style="font-size: 20px;">Calcola totale</button>
+      <button onclick="saveValue()" style="font-size: 20px;">Calcola totale</button>
     </div>
-    <span class="sizeResult"> 10</span>
+    <span id="total" class="sizeResult">0</span>
   </div>
 </body>
 
