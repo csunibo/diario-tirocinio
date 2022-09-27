@@ -26,6 +26,7 @@
     @media (max-width: 880px) {
       body {
         line-height: 1.5rem;
+        font-size: 16px !important;
       }
 
       a {
@@ -34,13 +35,20 @@
 
       .item {
         padding: 3% !important;
+        margin: 2% !important;
+        flex-wrap: wrap;
       }
+
+      .sizeResult {
+        padding-top: 5% !important;
+      }
+
     }
 
     body {
       color: var(--f);
       background: var(--b);
-      font-size: 16px;
+      font-size: 20px;
       text-align: center;
       font-family: monospace;
       margin: 0;
@@ -48,7 +56,7 @@
 
     h1 {
       padding-top: 5vh;
-      font-size: 42px;
+      line-height: 2rem;
     }
 
     hr {
@@ -63,6 +71,9 @@
     button {
       color: inherit;
       transition: 0.2s;
+      background: transparent;
+      border: 2px solid;
+      padding: 1%;
     }
 
     a:hover,
@@ -70,6 +81,7 @@
       scale: 1.05;
       background-color: var(--d);
       color: var(--f) !important;
+      cursor: pointer;
     }
 
     html,
@@ -79,7 +91,6 @@
 
     .areaHour {
       display: flex;
-      height: 100%;
       flex-direction: column;
       justify-content: center;
     }
@@ -87,7 +98,7 @@
     .item {
       margin: 1%;
       color: var(--f);
-      padding: 1%;
+      padding: 1.5%;
       border: solid 2px;
       text-decoration: none;
       cursor: pointer;
@@ -104,22 +115,59 @@
       padding: 1rem;
       justify-content: center;
     }
+
+    .container {
+      display: flex;
+      flex: 1 0 auto;
+      flex-direction: column;
+      height: 85%;
+      justify-content: center;
+    }
+
+    span {
+      padding: 1%;
+    }
+
+    .sizeResult {
+      font-size: 30px;
+      padding-top: 2%;
+    }
   </style>
 </head>
 
 <body>
-  <div class="areaHour">
-    <span>Seleziona il numero di ore condotte </span>
-    <div class="selectHour">
-      <button class="item">1</button>
-      <button class="item">2</button>
-      <button class="item">3</button>
-      <button class="item">4</button>
-      <button class="item">5</button>
-      <button class="item">6</button>
-      <button class="item">7</button>
-      <button class="item">8</button>
+  <div class="container">
+    <h1>Calcola ore tirocinio</h1>
+    <div class="areaHour">
+      <span>Numero di ore condotte </span>
+      <div class="selectHour">
+        <button id="1" type="radio" class="item">1</button>
+        <button id="2" type="radio" class="item">2</button>
+        <button id="3" type="radio" class="item">3</button>
+        <button id="4" type="radio" class="item">4</button>
+        <button id="5" type="radio" class="item">5</button>
+        <button id="6" type="radio" class="item">6</button>
+        <button id="7" type="radio" class="item">7</button>
+        <button id="8" type="radio" class="item">8</button>
+      </div>
     </div>
+    <div class="areaHour">
+      <span>Numero di ore da rimuovere</span>
+      <div class="selectHour">
+        <button id="1" type="radio" class="item">1</button>
+        <button id="2" type="radio" class="item">2</button>
+        <button id="3" type="radio" class="item">3</button>
+        <button id="4" type="radio" class="item">4</button>
+        <button id="5" type="radio" class="item">5</button>
+        <button id="6" type="radio" class="item">6</button>
+        <button id="7" type="radio" class="item">7</button>
+        <button id="8" type="radio" class="item">8</button>
+      </div>
+    </div>
+    <div style="padding: 2%;">
+      <button style="font-size: 20px;">Calcola totale</button>
+    </div>
+    <span class="sizeResult"> 10</span>
   </div>
 </body>
 
