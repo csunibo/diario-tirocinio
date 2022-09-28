@@ -144,20 +144,26 @@
     }
   </style>
 
-  <script>
+  <script lang="javascript">
+    let totalHours = 0
+    if (localStorage.getItem("hours")) {
+      totalHours = parseInt(localStorage.getItem("hours"))
+      document.getElementById("total").innerHTML = totalHours
+    }
+    else
+      totalHours = 0
 
-    let totalHours = parseInt(localStorage.getItem("hours"))
-    let selectedhour = 0
-
+    let tmpHour = 0
     function addValue(hour) {
-      selectedhour = parseInt(hour)
+      tmpHour = hour
     }
 
     function saveValue() {
-      if (!localStorage.getItem("hours"))
-        localStorage.setItem("hours", "0")
-      localStorage.setItem("hours", parseInt(localStorage.getItem("hours")) + selectedhour);
+      totalHours += tmpHour
+      if (totalHours < 0)
+        totalHours = 0
       document.getElementById("total").innerHTML = totalHours
+      localStorage.setItem("hours", totalHours)
     }
   </script>
 </head>
