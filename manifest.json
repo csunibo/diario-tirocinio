@@ -1,8 +1,10 @@
 {
-  "name": "Calcola ore tirocinio",
-  "short_name": "ore-tirocinio",
-  "start_url": "index.html",
-  "scope": "./",
+  "name": "Calcola tirocinio", // installation name
+  "short_name": "calcola-ore", // app title name
+  "start_url": ".",
+  "theme_color": "#4287f5",
+  "background_color": "#ffffff",
+  "display": "standalone",
   "icons": [
     {
       "src": "unibo192.png",
@@ -14,8 +16,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "theme_color": "#ffd31d",
-  "background_color": "#333",
-  "display": "standalone"
+  ]
 }
