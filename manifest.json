@@ -1,17 +1,21 @@
 {
-  "name": "Github Page PWA",
-  "short_name": "GPPWA",
-  "description": "Github Page as a Progressive Web App",
-  "scope": "/oreTirocinio/",
-  "start_url": "/oreTirocinio/",
   "background_color": "#ffffff",
+  "description": "A dice simulator",
+  "dir": "ltr",
+  "display": "fullscreen",
+  "name": "Dice",
+  "orientation": "landscape",
+  "scope": "/oreTirocinio/",
+  "short_name": "Dice",
+  "start_url": "/oreTirocinio/",
   "theme_color": "#ffffff",
-  "display": "standalone",
+  "categories": [],
   "icons": [
     {
       "src": "/oreTirocinio/unibo192.png",
       "type": "image/png",
       "sizes": "192x192"
     }
-  ]
+  ],
+  "shortcuts": []
 }
