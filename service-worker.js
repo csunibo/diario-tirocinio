@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["README.md","1320b138cdde044aa0bb97e8fb4745f1"],["index.html","ddd9251095e7ddd637fc0db7fa706b15"],["manifest.json","6e8357948e97c5e3d6105963769f40db"]];
+var precacheConfig = [["README.md","1320b138cdde044aa0bb97e8fb4745f1"],["index.html","ddd9251095e7ddd637fc0db7fa706b15"],["manifest.json","26b69a7ec27f94a90b8dde30d737980a"],["unibo192.png","d9632edb747bf566f7843bed5e8a24da"]];
 var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
 
 
