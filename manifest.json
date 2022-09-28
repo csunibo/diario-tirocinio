@@ -1,0 +1,16 @@
+{
+  "name": "CarZone",
+  "short_name": "Carzone",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#2A3443",
+  "description": "carselling application",
+  "theme_color": "#2A3443",
+  "icons": [
+    {
+      "src": "./unibo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
