@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="manifest" href="/manifest.json">
+
   <title>CSUnibo</title>
   <style>
     :root {
@@ -165,15 +167,23 @@
   </style>
 
   <script lang="javascript">
-    let totalHours = 0
-    if (localStorage.getItem("hours")) {
-      totalHours = parseInt(localStorage.getItem("hours"))
-      document.getElementById("total").innerHTML = totalHours
+    if ("serviceWorker" in navigator) {
+      // register service worker
+      navigator.serviceWorker.register("service-worker.js");
     }
-    else
-      totalHours = 0
 
+    let totalHours = 0
     let tmpHour = 0
+    function loadData() {
+      if (localStorage.getItem("hours")) {
+        totalHours = parseInt(localStorage.getItem("hours"))
+        console.log(totalHours)
+        document.getElementById("total").innerHTML = totalHours
+      }
+      else
+        totalHours = 0
+    }
+
     function addValue(hour) {
       tmpHour = hour
     }
@@ -188,7 +198,7 @@
   </script>
 </head>
 
-<body>
+<body onload="loadData()">
   <div class="container">
     <h1>Calcola ore tirocinio</h1>
     <div class="areaHour">
