@@ -1,10 +1,10 @@
 {
-  "name": "CarZone",
-  "short_name": "Carzone",
+  "name": "ore-tirocinio",
+  "short_name": "ore-tirocinio",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#2A3443",
-  "description": "carselling application",
+  "description": "Conta ore tirocinio",
   "theme_color": "#2A3443",
   "icons": [
     {
