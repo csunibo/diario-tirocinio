@@ -1,6 +1,6 @@
 {
-  "name": "Calcola tirocinio", // installation name
-  "short_name": "calcola-ore", // app title name
+  "name": "Calcola tirocinio",
+  "short_name": "calcola-ore",
   "start_url": ".",
   "theme_color": "#4287f5",
   "background_color": "#ffffff",
