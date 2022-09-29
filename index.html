@@ -71,9 +71,7 @@
         padding: 3% !important;
         margin-top: 3% !important;
       }
-      .container{
-        justify-content: center;
-      }
+
     }
 
     body {
@@ -154,6 +152,7 @@
       display: flex;
       flex: 1 0 auto;
       flex-direction: column;
+      justify-content: center;
       height: 100%;
     }
 
@@ -187,36 +186,36 @@
       )
     }
 
-    
+
     let totalHours = 0
     let tmpHour = 0
-    let data = {  
+    let data = {
       ora: [],
       attivita: []
     }
-    
-    function loadData(){
-      if(localStorage.getItem("data"))
+
+    function loadData() {
+      if (localStorage.getItem("data"))
         data = JSON.parse(localStorage.getItem('data'))
       else
-        localStorage.setItem("data",JSON.stringify(data))
+        localStorage.setItem("data", JSON.stringify(data))
       updateText()
     }
 
     function tmpValue(hour) {
       tmpHour = hour
     }
-  
+
     function updateText() {
-      document.getElementById("total").innerHTML = "ore svolte: " + 
-        data.ora.reduce((previousValue, currentValue) => previousValue + currentValue,0);
+      document.getElementById("total").innerHTML = "ore svolte: " +
+        data.ora.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
     }
 
     function addValue() {
-      data.ora.push(tmpHour) 
+      data.ora.push(tmpHour)
       data.attivita.push(document.getElementById("textJob").value)
       document.getElementById("textJob").value = ""
-      localStorage.setItem("data",JSON.stringify(data))
+      localStorage.setItem("data", JSON.stringify(data))
       updateText()
     }
 
@@ -225,7 +224,7 @@
       data.attivita.pop()
       data.ora.pop()
       updateText()
-      localStorage.setItem("data",JSON.stringify(data))
+      localStorage.setItem("data", JSON.stringify(data))
     }
 
     function downloadPDF() {
@@ -242,7 +241,7 @@
     <div class="areaHour">
       <span>Numero di ore condotte </span>
       <div id="addHour" class="selectHour">
-        <button onclick="tmpValue(1)" name="hour" id="1" type="radio" class="item" >1</button>
+        <button onclick="tmpValue(1)" name="hour" id="1" type="radio" class="item">1</button>
         <button onclick="tmpValue(2)" name="hour" id="2" type="radio" class="item">2</button>
         <button onclick="tmpValue(3)" name="hour" id="3" type="radio" class="item">3</button>
         <button onclick="tmpValue(4)" name="hour" id="4" type="radio" class="item">4</button>
