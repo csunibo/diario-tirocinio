@@ -189,10 +189,10 @@
 
     let totalHours = 0
     let tmpHour = 0
-    let data = {
-      ora: [],
-      attivita: []
-    }
+    let data = [{
+      ora: 0,
+      attivita: ""
+    }]
 
     function loadData() {
       if (localStorage.getItem("data"))
@@ -207,13 +207,16 @@
     }
 
     function updateText() {
+      console.log(data)
       document.getElementById("total").innerHTML = "ore svolte: " +
-        data.ora.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
+        data.reduce((previousValue, currentValue) => previousValue + currentValue.ora, 0);
     }
 
     function addValue() {
-      data.ora.push(tmpHour)
-      data.attivita.push(document.getElementById("textJob").value)
+      data.push({      
+        ora: tmpHour,
+        attivita: document.getElementById("textJob").value
+      })
       document.getElementById("textJob").value = ""
       localStorage.setItem("data", JSON.stringify(data))
       updateText()
@@ -221,8 +224,7 @@
 
     function removeLast() {
       data = JSON.parse(localStorage.getItem('data'))
-      data.attivita.pop()
-      data.ora.pop()
+      data.pop()
       updateText()
       localStorage.setItem("data", JSON.stringify(data))
     }
