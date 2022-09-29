@@ -217,7 +217,7 @@
     }
 
     function addValue() {
-      data.push({      
+      data.push({
         ora: tmpHour,
         attivita: document.getElementById("textJob").value
       })
@@ -236,18 +236,18 @@
 
 
 
-      function generatePDF() {
-        var doc = new jspdf.jsPDF()
-        var head = [['attività', 'ore']]
-        let body = []
-        data.forEach(element => {
-          body.push([element.attivita,element.ora])
-        });
+    function generatePDF() {
+      var doc = new jspdf.jsPDF()
+      var head = [['attività', 'ore']]
+      let body = []
+      data.forEach(element => {
+        body.push([element.attivita, element.ora])
+      });
 
-        doc.autoTable({ head: head, body: body })
-        doc.autoTable({ html: '#table' })
-        doc.save('Diario-tirocinio.pdf')
-      }
+      doc.autoTable({head: head, body: body})
+      doc.autoTable({html: '#table'})
+      doc.save('diario-tirocinio.pdf')
+    }
 
   </script>
 </head>
