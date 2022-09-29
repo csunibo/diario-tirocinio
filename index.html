@@ -4,10 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+  <script src="https://unpkg.com/jspdf-autotable@latest/dist/jspdf.plugin.autotable.js"></script>
   <!--  manifest  -->
   <link rel="manifest" href="./manifest.json">
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
   <meta name="theme-color" content="#2A3443" />
   <meta name="description" content="Conta ore tirocinio" />
 
@@ -17,6 +18,7 @@
   <meta name="mobile-web-app-status-bar-style" content="black" />
   <meta name="mobile-web-app-title" content="conta-tirocinio" />
   <!-- manifest ends -->
+
   <title>CSUnibo</title>
   <style>
     :root {
@@ -179,6 +181,8 @@
   </style>
 
   <script lang="javascript">
+
+
     if (navigator.serviceWorker) {
       navigator.serviceWorker.register(
         '/oreTirocinio/sw.js',
@@ -217,6 +221,7 @@
         ora: tmpHour,
         attivita: document.getElementById("textJob").value
       })
+      data = data.filter(item => item.ora !== 0)
       document.getElementById("textJob").value = ""
       localStorage.setItem("data", JSON.stringify(data))
       updateText()
@@ -229,10 +234,20 @@
       localStorage.setItem("data", JSON.stringify(data))
     }
 
-    function downloadPDF() {
-      let text = document.getElementById("textJob").value
-      console.log(text)
-    }
+
+
+      function generatePDF() {
+        var doc = new jspdf.jsPDF()
+        var head = [['attività', 'ore']]
+        let body = []
+        data.forEach(element => {
+          body.push([element.attivita,element.ora])
+        });
+
+        doc.autoTable({ head: head, body: body })
+        doc.autoTable({ html: '#table' })
+        doc.save('table.pdf')
+      }
 
   </script>
 </head>
@@ -263,7 +278,7 @@
       <button onclick="removeLast()" style="font-size: 20px;">Rimuovi attività</button>
       <br>
       <br>
-      <button onclick="downloadPDF()" style="font-size: 20px;">Scarica PDF</button>
+      <button onclick="generatePDF()" style="font-size: 20px;">Scarica PDF</button>
     </div>
     <span id="total" class="sizeResult">ore svolte: 0</span>
   </div>

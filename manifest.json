@@ -1,16 +1,16 @@
 {
-  "name": "ore-tirocinio",
-  "short_name": "ore-tirocinio",
-  "start_url": ".",
-  "display": "standalone",
-  "background_color": "#2A3443",
-  "description": "Conta ore tirocinio",
-  "theme_color": "#2A3443",
-  "icons": [
-    {
-      "src": "./unibo192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    }
-  ]
+      "name": "ore-tirocinio",
+      "short_name": "ore-tirocinio",
+      "start_url": ".",
+      "display": "standalone",
+      "background_color": "#2A3443",
+      "description": "Conta ore tirocinio",
+      "theme_color": "#2A3443",
+      "icons": [
+            {
+                  "src": "./unibo192.png",
+                  "sizes": "192x192",
+                  "type": "image/png"
+            }
+      ]
 }
