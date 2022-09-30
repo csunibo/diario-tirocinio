@@ -3,12 +3,12 @@
   "short_name": "diario-tirocinio",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#2A3443",
+  "background_color": "#282828",
   "description": "diario tirocinio",
-  "theme_color": "#2A3443",
+  "theme_color": "#282828",
   "icons": [
     {
-      "src": "./unibo192.png",
+      "src": "./unibo.png",
       "sizes": "192x192",
       "type": "image/png"
     }
