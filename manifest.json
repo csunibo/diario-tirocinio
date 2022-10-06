@@ -8,8 +8,13 @@
   "theme_color": "#282828",
   "icons": [
     {
-      "src": "./img/unibo.png",
+      "src": "./img/unibo192.png",
       "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/unibo512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
