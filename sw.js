@@ -1,9 +1,9 @@
-var APP_PREFIX = 'diarioTirocinio_';
+var APP_PREFIX = 'Diariotirocinio_';
 var VERSION = 'version_01';
 var CACHE_NAME = APP_PREFIX + VERSION
 var URLS = [
-  '/diarioTirocinio/',
-  '/diarioTirocinio/index.html'
+  '/Diariotirocinio/',
+  '/Diariotirocinio/index.html'
 ]
 
 self.addEventListener('fetch', function(e) {
