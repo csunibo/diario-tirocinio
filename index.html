@@ -220,7 +220,7 @@
 
 
     let totalHours = 0
-    let tmpHour = 0
+    let tmpHour = 1
     let data = [{
       ora: 0,
       attivita: ""
@@ -235,13 +235,14 @@
     }
 
     function tmpValue(hour) {
+      document.getElementById(tmpHour).style.backgroundColor = "transparent";
       tmpHour = hour
+      document.getElementById(hour).style.backgroundColor = "#fe8019";
     }
 
     function updateText() {
-      console.log(data)
       document.getElementById("total").innerHTML = "ore svolte: " +
-        data.reduce((previousValue, currentValue) => previousValue + currentValue.ora, 0);
+      data.reduce((previousValue, currentValue) => previousValue + currentValue.ora, 0);
     }
 
     function addValue() {
@@ -249,6 +250,7 @@
         ora: tmpHour,
         attivita: document.getElementById("textJob").value
       })
+      document.getElementById(tmpHour).style.backgroundColor = "transparent";
       data = data.filter(item => item.ora !== 0)
       document.getElementById("textJob").value = ""
       localStorage.setItem("data", JSON.stringify(data))
