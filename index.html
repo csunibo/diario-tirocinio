@@ -80,6 +80,12 @@
         margin-top: 3% !important;
       }
 
+      .btn{
+        padding: 10px !important;
+        margin: 5px !important;
+      }
+
+
     }
 
     body {
@@ -114,7 +120,8 @@
     }
 
     a:hover,
-    button:hover {
+    button:hover,
+    .btn:hover {
       scale: 1.05;
       background-color: var(--d);
       color: var(--f) !important;
@@ -184,6 +191,21 @@
       flex: 1 0 30%;
       justify-content: center;
     }
+
+    .btn{
+      display: flex;
+      outline: 2px solid #333;
+      border: 3px solid ;
+      transition: 0.2s;
+      padding: 20px;
+      margin: 5px;
+    }
+
+    .changeBg::after{
+      cursor: pointer;
+      background-color: var(--d);
+    }
+
   </style>
 
   <script lang="javascript">
@@ -240,8 +262,6 @@
       localStorage.setItem("data", JSON.stringify(data))
     }
 
-
-
     function generatePDF() {
       var doc = new jspdf.jsPDF()
       var head = [['attività', 'ore']]
@@ -264,14 +284,14 @@
     <div class="areaHour">
       <span>Numero di ore condotte </span>
       <div id="addHour" class="selectHour">
-        <button onclick="tmpValue(1)" name="hour" id="1" type="radio" class="item">1</button>
-        <button onclick="tmpValue(2)" name="hour" id="2" type="radio" class="item">2</button>
-        <button onclick="tmpValue(3)" name="hour" id="3" type="radio" class="item">3</button>
-        <button onclick="tmpValue(4)" name="hour" id="4" type="radio" class="item">4</button>
-        <button onclick="tmpValue(5)" name="hour" id="5" type="radio" class="item">5</button>
-        <button onclick="tmpValue(6)" name="hour" id="6" type="radio" class="item">6</button>
-        <button onclick="tmpValue(7)" name="hour" id="7" type="radio" class="item">7</button>
-        <button onclick="tmpValue(8)" name="hour" id="8" type="radio" class="item">8</button>
+        <div class="changeBg btn" onclick="tmpValue(1)" name="hour" id="1" type="radio" class="item">1</div>
+        <div class="changeBg btn" onclick="tmpValue(2)" name="hour" id="2" type="radio" class="item">2</div>
+        <div class="changeBg btn" onclick="tmpValue(3)" name="hour" id="3" type="radio" class="item">3</div>
+        <div class="changeBg btn" onclick="tmpValue(4)" name="hour" id="4" type="radio" class="item">4</div>
+        <div class="changeBg btn" onclick="tmpValue(5)" name="hour" id="5" type="radio" class="item">5</div>
+        <div class="changeBg btn" onclick="tmpValue(6)" name="hour" id="6" type="radio" class="item">6</div>
+        <div class="changeBg btn" onclick="tmpValue(7)" name="hour" id="7" type="radio" class="item">7</div>
+        <div class="changeBg btn" onclick="tmpValue(8)" name="hour" id="8" type="radio" class="item">8</div>
       </div>
       <h2> Attività svolta</h2>
       <div style="display: flex; justify-content: center;">
