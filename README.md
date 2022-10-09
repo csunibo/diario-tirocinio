@@ -1,3 +1,4 @@
-## DIARIO TIROCINIO
+# Diario Tirocinio
 
-Un semplice tool per riassumere le attività svolte nel tirocinio
+Un semplice strumento per riassumere le attività svolte durante il proprio
+tirocinio.
