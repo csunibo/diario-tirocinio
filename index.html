@@ -1,322 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/jspdf-autotable@latest/dist/jspdf.plugin.autotable.js"></script>
+    <!--  manifest  -->
+    <link rel="manifest" href="./manifest.json" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="theme-color" content="#2A3443" />
+    <meta name="description" content="diario tirocinio" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
-  <script src="https://unpkg.com/jspdf-autotable@latest/dist/jspdf.plugin.autotable.js"></script>
-  <!--  manifest  -->
-  <link rel="manifest" href="./manifest.json">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="theme-color" content="#2A3443" />
-  <meta name="description" content="diario tirocinio" />
+    <!-- iOS -->
+    <link rel="apple-touch-icon" href="./img/unibo.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-title" content="diario-tirocinio" />
+    <!-- manifest ends -->
 
-  <!-- iOS -->
-  <link rel="apple-touch-icon" href="./img/unibo.png" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="mobile-web-app-status-bar-style" content="black" />
-  <meta name="mobile-web-app-title" content="diario-tirocinio" />
-  <!-- manifest ends -->
+    <!-- Open Graph -->
+    <meta property="og:title" content="Diario Tirocinio" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://csunibo.github.io/diario-tirocinio"
+    />
+    <meta property="og:image" content="/img/unibo512.png" />
+    <meta property="og:site_name" content="CSUnibo" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Diario Tirocinio" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://csunibo.github.io/diario-tirocinio" />
-  <meta property="og:image" content="/img/unibo512.png" />
-  <meta property="og:site_name" content="CSUnibo" />
+    <!-- icons -->
+    <link rel="icon" href="img/unibo32.ico" sizes="32x32" type="image/x-icon" />
+    <link
+      rel="icon"
+      href="img/unibo128.ico"
+      sizes="128x128"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      href="img/unibo180.ico"
+      sizes="180x180"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      href="img/unibo192.ico"
+      sizes="192x192"
+      type="image/x-icon"
+    />
 
-  <!-- icons -->
-  <link rel=icon href="img/unibo32.ico" sizes="32x32" type="image/x-icon">
-  <link rel=icon href="img/unibo128.ico" sizes="128x128" type="image/x-icon">
-  <link rel=icon href="img/unibo180.ico" sizes="180x180" type="image/x-icon">
-  <link rel=icon href="img/unibo192.ico" sizes="192x192" type="image/x-icon">
-
-  <title>Diario Tirocinio</title>
-  <style>
-    :root {
-      --b: #fbf1c7;
-      --b2: #bdae93;
-      --f: #282828;
-      --d: #d65d0e;
-    }
-
-    @media (prefers-color-scheme: dark) {
+    <title>Diario Tirocinio</title>
+    <style>
       :root {
-        --b: #282828;
-        --b2: #7c6f64;
-        --f: #fbf1c7;
-        --d: #fe8019;
+        --b: #fbf1c7;
+        --b2: #bdae93;
+        --f: #282828;
+        --d: #d65d0e;
       }
-    }
 
-    @media (max-width: 880px) {
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --b: #282828;
+          --b2: #7c6f64;
+          --f: #fbf1c7;
+          --d: #fe8019;
+        }
+      }
+
+      @media (max-width: 880px) {
+        body {
+          line-height: 1.5rem;
+          font-size: 16px !important;
+        }
+
+        a {
+          width: 100vw !important;
+        }
+
+        .item {
+          padding: 3% !important;
+          margin: 2% !important;
+          flex-wrap: wrap;
+        }
+
+        .sizeResult {
+          padding-top: 5% !important;
+        }
+
+        textarea {
+          flex: 0 1 90% !important;
+        }
+
+        span {
+          padding: 1%;
+        }
+
+        h1 {
+          line-height: 2rem !important;
+        }
+
+        button {
+          padding: 3% !important;
+          margin-top: 3% !important;
+        }
+
+        .btn {
+          padding: 10px !important;
+          margin: 5px !important;
+        }
+      }
+
       body {
-        line-height: 1.5rem;
-        font-size: 16px !important;
+        color: var(--f);
+        background: var(--b);
+        font-size: 20px;
+        text-align: center;
+        font-family: monospace;
+        margin: 0;
       }
 
-      a {
-        width: 100vw !important;
+      hr {
+        width: 100%;
       }
 
-      .item {
-        padding: 3% !important;
-        margin: 2% !important;
-        flex-wrap: wrap;
+      b {
+        color: var(--d);
       }
 
-      .sizeResult {
-        padding-top: 5% !important;
-      }
-
+      a,
+      button,
       textarea {
-        flex: 0 1 90% !important;
-      }
-
-      span {
+        color: inherit;
+        text-decoration: none;
+        transition: 0.2s;
+        background: transparent;
+        border: 2px solid;
         padding: 1%;
       }
 
-      h1 {
-        line-height: 2rem !important;
+      a:hover,
+      button:hover,
+      .btn:hover {
+        scale: 1.05;
+        background-color: var(--d);
+        color: var(--f) !important;
+        cursor: pointer;
       }
 
-      button {
-        padding: 3% !important;
-        margin-top: 3% !important;
+      html,
+      body {
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
       }
 
-      .btn{
-        padding: 10px !important;
-        margin: 5px !important;
+      .areaHour {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 1%;
+      }
+
+      .item {
+        margin: 1%;
+        color: var(--f);
+        padding: 1.5%;
+        border: solid 2px;
+        text-decoration: none;
+        cursor: pointer;
+        background-color: transparent;
+      }
+
+      .item:focus {
+        background-color: var(--d);
+      }
+
+      .selectHour {
+        display: flex;
+        flex-direction: row;
+        padding: 1rem;
+        justify-content: center;
+      }
+
+      .container {
+        display: flex;
+        flex: 1 0 auto;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .sizeResult {
+        font-size: 30px;
+        padding-top: 0%;
+      }
+
+      input[type="radio"] {
+        box-sizing: border-box;
+        appearance: none;
+        background: white;
+        outline: 2px solid #333;
+        border: 3px solid white;
+        width: 16px;
+        height: 16px;
+      }
+
+      .inputArea {
+        display: flex;
+        flex: 1 0 30%;
+        justify-content: center;
+      }
+
+      .btn {
+        display: flex;
+        outline: 2px solid #333;
+        border: 3px solid;
+        transition: 0.2s;
+        padding: 20px;
+        margin: 5px;
+      }
+
+      .changeBg::after {
+        cursor: pointer;
+        background-color: var(--d);
+      }
+    </style>
+
+    <script lang="javascript">
+
+
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register(
+          '/Diariotirocinio/sw.js',
+          {scope: '/Diariotirocinio/'}
+        )
       }
 
 
-    }
+      let totalHours = 0
+      let tmpHour = 1
+      let data = [{
+        ora: 0,
+        attivita: ""
+      }]
 
-    body {
-      color: var(--f);
-      background: var(--b);
-      font-size: 20px;
-      text-align: center;
-      font-family: monospace;
-      margin: 0;
-    }
+      function loadData() {
+        if (localStorage.getItem("data"))
+          data = JSON.parse(localStorage.getItem('data'))
+        else
+          localStorage.setItem("data", JSON.stringify(data))
+        updateText()
+      }
 
-    h1 {
-      line-height: 1rem;
-    }
+      function tmpValue(hour) {
+        document.getElementById(tmpHour).style.backgroundColor = "transparent";
+        tmpHour = hour
+        document.getElementById(hour).style.backgroundColor = "#fe8019";
+      }
 
-    hr {
-      width: 100%;
-    }
+      function updateText() {
+        document.getElementById("total").innerHTML = "ore svolte: " +
+        data.reduce((previousValue, currentValue) => previousValue + currentValue.ora, 0);
+      }
 
-    b {
-      color: var(--d);
-    }
-
-    a,
-    button,
-    textarea {
-      color: inherit;
-      transition: 0.2s;
-      background: transparent;
-      border: 2px solid;
-      padding: 1%;
-    }
-
-    a:hover,
-    button:hover,
-    .btn:hover {
-      scale: 1.05;
-      background-color: var(--d);
-      color: var(--f) !important;
-      cursor: pointer;
-    }
-
-    html,
-    body {
-      height: 100%;
-      margin: 0px;
-      padding: 0px;
-    }
-
-    .areaHour {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 1%;
-    }
-
-    .item {
-      margin: 1%;
-      color: var(--f);
-      padding: 1.5%;
-      border: solid 2px;
-      text-decoration: none;
-      cursor: pointer;
-      background-color: transparent;
-    }
-
-    .item:focus {
-      background-color: var(--d);
-    }
-
-    .selectHour {
-      display: flex;
-      flex-direction: row;
-      padding: 1rem;
-      justify-content: center;
-    }
-
-    .container {
-      display: flex;
-      flex: 1 0 auto;
-      flex-direction: column;
-      justify-content: center;
-      height: 100%;
-    }
-
-    .sizeResult {
-      font-size: 30px;
-      padding-top: 0%;
-    }
-
-    input[type='radio'] {
-      box-sizing: border-box;
-      appearance: none;
-      background: white;
-      outline: 2px solid #333;
-      border: 3px solid white;
-      width: 16px;
-      height: 16px;
-    }
-
-    .inputArea {
-      display: flex;
-      flex: 1 0 30%;
-      justify-content: center;
-    }
-
-    .btn{
-      display: flex;
-      outline: 2px solid #333;
-      border: 3px solid ;
-      transition: 0.2s;
-      padding: 20px;
-      margin: 5px;
-    }
-
-    .changeBg::after{
-      cursor: pointer;
-      background-color: var(--d);
-    }
-
-  </style>
-
-  <script lang="javascript">
-
-
-    if (navigator.serviceWorker) {
-      navigator.serviceWorker.register(
-        '/Diariotirocinio/sw.js',
-        {scope: '/Diariotirocinio/'}
-      )
-    }
-
-
-    let totalHours = 0
-    let tmpHour = 1
-    let data = [{
-      ora: 0,
-      attivita: ""
-    }]
-
-    function loadData() {
-      if (localStorage.getItem("data"))
-        data = JSON.parse(localStorage.getItem('data'))
-      else
+      function addValue() {
+        data.push({
+          ora: tmpHour,
+          attivita: document.getElementById("textJob").value
+        })
+        document.getElementById(tmpHour).style.backgroundColor = "transparent";
+        data = data.filter(item => item.ora !== 0)
+        document.getElementById("textJob").value = ""
         localStorage.setItem("data", JSON.stringify(data))
-      updateText()
-    }
+        updateText()
+      }
 
-    function tmpValue(hour) {
-      document.getElementById(tmpHour).style.backgroundColor = "transparent";
-      tmpHour = hour
-      document.getElementById(hour).style.backgroundColor = "#fe8019";
-    }
+      function removeLast() {
+        data = JSON.parse(localStorage.getItem('data'))
+        data.pop()
+        updateText()
+        localStorage.setItem("data", JSON.stringify(data))
+      }
 
-    function updateText() {
-      document.getElementById("total").innerHTML = "ore svolte: " +
-      data.reduce((previousValue, currentValue) => previousValue + currentValue.ora, 0);
-    }
+      function generatePDF() {
+        var doc = new jspdf.jsPDF()
+        var head = [['attività', 'ore']]
+        let body = []
+        data.forEach(element => {
+          body.push([element.attivita, element.ora])
+        });
 
-    function addValue() {
-      data.push({
-        ora: tmpHour,
-        attivita: document.getElementById("textJob").value
-      })
-      document.getElementById(tmpHour).style.backgroundColor = "transparent";
-      data = data.filter(item => item.ora !== 0)
-      document.getElementById("textJob").value = ""
-      localStorage.setItem("data", JSON.stringify(data))
-      updateText()
-    }
+        doc.autoTable({head: head, body: body})
+        doc.autoTable({html: '#table'})
+        doc.save('diario-tirocinio.pdf')
+      }
+    </script>
+  </head>
 
-    function removeLast() {
-      data = JSON.parse(localStorage.getItem('data'))
-      data.pop()
-      updateText()
-      localStorage.setItem("data", JSON.stringify(data))
-    }
-
-    function generatePDF() {
-      var doc = new jspdf.jsPDF()
-      var head = [['attività', 'ore']]
-      let body = []
-      data.forEach(element => {
-        body.push([element.attivita, element.ora])
-      });
-
-      doc.autoTable({head: head, body: body})
-      doc.autoTable({html: '#table'})
-      doc.save('diario-tirocinio.pdf')
-    }
-
-  </script>
-</head>
-
-<body onload="loadData()">
-  <div class="container">
-    <h1>Genera diario tirocinio</h1>
-    <div class="areaHour">
-      <span>Numero di ore condotte </span>
-      <div id="addHour" class="selectHour">
-        <div class="changeBg btn" onclick="tmpValue(1)" name="hour" id="1" type="radio" class="item">1</div>
-        <div class="changeBg btn" onclick="tmpValue(2)" name="hour" id="2" type="radio" class="item">2</div>
-        <div class="changeBg btn" onclick="tmpValue(3)" name="hour" id="3" type="radio" class="item">3</div>
-        <div class="changeBg btn" onclick="tmpValue(4)" name="hour" id="4" type="radio" class="item">4</div>
-        <div class="changeBg btn" onclick="tmpValue(5)" name="hour" id="5" type="radio" class="item">5</div>
-        <div class="changeBg btn" onclick="tmpValue(6)" name="hour" id="6" type="radio" class="item">6</div>
-        <div class="changeBg btn" onclick="tmpValue(7)" name="hour" id="7" type="radio" class="item">7</div>
-        <div class="changeBg btn" onclick="tmpValue(8)" name="hour" id="8" type="radio" class="item">8</div>
+  <body onload="loadData()">
+    <div class="container">
+      <h1><a href="..">CSUnibo</a> | Genera diario tirocinio</h1>
+      <div class="areaHour">
+        <span>Numero di ore condotte </span>
+        <div id="addHour" class="selectHour">
+          <div
+            class="changeBg btn"
+            onclick="tmpValue(1)"
+            name="hour"
+            id="1"
+            type="radio"
+            class="item"
+          >
+            1
+          </div>
+          <div
+            class="changeBg btn"
+            onclick="tmpValue(2)"
+            name="hour"
+            id="2"
+            type="radio"
+            class="item"
+          >
+            2
+          </div>
+          <div
+            class="changeBg btn"
+            onclick="tmpValue(3)"
+            name="hour"
+            id="3"
+            type="radio"
+            class="item"
+          >
+            3
+          </div>
+          <div
+            class="changeBg btn"
+            onclick="tmpValue(4)"
+            name="hour"
+            id="4"
+            type="radio"
+            class="item"
+          >
+            4
+          </div>
+          <div
+            class="changeBg btn"
+            onclick="tmpValue(5)"
+            name="hour"
+            id="5"
+            type="radio"
+            class="item"
+          >
+            5
+          </div>
+          <div
+            class="changeBg btn"
+            onclick="tmpValue(6)"
+            name="hour"
+            id="6"
+            type="radio"
+            class="item"
+          >
+            6
+          </div>
+          <div
+            class="changeBg btn"
+            onclick="tmpValue(7)"
+            name="hour"
+            id="7"
+            type="radio"
+            class="item"
+          >
+            7
+          </div>
+          <div
+            class="changeBg btn"
+            onclick="tmpValue(8)"
+            name="hour"
+            id="8"
+            type="radio"
+            class="item"
+          >
+            8
+          </div>
+        </div>
+        <h2>Attività svolta</h2>
+        <div style="display: flex; justify-content: center">
+          <textarea
+            id="textJob"
+            rows="3"
+            cols="3"
+            style="display: flex; flex: 0 1 30%"
+          ></textarea>
+        </div>
       </div>
-      <h2> Attività svolta</h2>
-      <div style="display: flex; justify-content: center;">
-        <textarea id="textJob" rows="3" cols="3" style="display: flex; flex: 0 1 30%;"></textarea>
+
+      <div style="padding: 2%">
+        <button onclick="addValue()" style="font-size: 20px">
+          Aggiungi attività
+        </button>
+        <button onclick="removeLast()" style="font-size: 20px">
+          Rimuovi attività
+        </button>
+        <br />
+        <br />
+        <button onclick="generatePDF()" style="font-size: 20px">
+          Scarica PDF
+        </button>
+      </div>
+      <span id="total" class="sizeResult">ore svolte: 0</span>
+      <div style="margin: 5%">
+        Sviluppato da <a href="https://github.com/kocierik">Erik</a> |
+        <a href="https://github.com/csunibo/diario-tirocinio">Contribuisci</a>
       </div>
     </div>
-
-    <div style="padding: 2%;">
-      <button onclick="addValue()" style="font-size: 20px;">Aggiungi attività</button>
-      <button onclick="removeLast()" style="font-size: 20px;">Rimuovi attività</button>
-      <br>
-      <br>
-      <button onclick="generatePDF()" style="font-size: 20px;">Scarica PDF</button>
-    </div>
-    <span id="total" class="sizeResult">ore svolte: 0</span>
-  </div>
-</body>
-
+  </body>
 </html>
