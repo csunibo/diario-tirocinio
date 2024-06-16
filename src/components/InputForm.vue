@@ -1,21 +1,45 @@
-<script></script>
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  data() {
+    return {
+      tmpTitle: '',
+      tmpTime: 0,
+      tmpDescription: ''
+    }
+  },
+  emits: ['addActivity'],
+  methods: {
+    handleSubmit(this: any) {
+      // Should check for errors :)
+
+      this.$emit('addActivity', this.tmpTitle, this.tmpTime, this.tmpDescription)
+    }
+  }
+})
+</script>
 
 <template>
   <div class="p-2">
-    <form>
+    <form @submit.prevent="handleSubmit()">
       <div class="mt-5">
         <label for="title">Titolo: </label>
-        <input id="title" type="text" class="rounded border p-2" />
+        <input v-model="tmpTitle" id="title" type="text" class="rounded border p-2" />
       </div>
 
       <div class="mt-5">
         <label>Ore:</label>
-        <input type="number" class="rounded border p-2" />
+        <input v-model="tmpTime" type="number" class="rounded border p-2" />
       </div>
 
       <div class="mt-5">
         <label for="description">Descrizione:</label>
-        <textarea class="block h-32 w-full rounded border p-2 outline-none"></textarea>
+        <textarea
+          v-model="tmpDescription"
+          placeholder="Add description..."
+          class="block h-32 w-full rounded border p-2 outline-none"
+        ></textarea>
       </div>
 
       <div class="flex justify-center">
