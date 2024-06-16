@@ -21,16 +21,21 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="p-2">
+  <div class="rounded-lg p-12" style="background-color: #0f1f2a">
     <form @submit.prevent="handleSubmit()">
       <div class="mt-5">
         <label for="title">Titolo: </label>
-        <input v-model="tmpTitle" id="title" type="text" class="rounded border p-2" />
+        <input
+          v-model="tmpTitle"
+          id="title"
+          type="text"
+          class="rounded border p-2 bg-sky-100 text-black"
+        />
       </div>
 
       <div class="mt-5">
         <label>Ore:</label>
-        <input v-model="tmpTime" type="number" class="rounded border p-2" />
+        <input v-model="tmpTime" type="number" class="rounded border p-2 bg-sky-100 text-black" />
       </div>
 
       <div class="mt-5">
@@ -38,12 +43,12 @@ export default defineComponent({
         <textarea
           v-model="tmpDescription"
           placeholder="Add description..."
-          class="block h-32 w-full rounded border p-2 outline-none"
+          class="block h-32 w-full rounded border p-2 outline-none bg-sky-100 text-black"
         ></textarea>
       </div>
 
       <div class="flex justify-center">
-        <button class="m-5 w-20 rounded border bg-blue-300 p-2">Add</button>
+        <button class="m-5 w-20 rounded border bg-blue-400 p-2 border-0 text-gray-50">Add</button>
       </div>
     </form>
   </div>

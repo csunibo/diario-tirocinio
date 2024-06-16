@@ -4,7 +4,6 @@ import ActivityTable from './components/ActivityTable.vue'
 
 import type { Activity } from './types.ts'
 import { defineComponent } from 'vue'
-import type { PropType } from 'vue'
 
 export default defineComponent({
   data() {
@@ -24,7 +23,7 @@ export default defineComponent({
 
 <template>
   <div class="flex justify-center">
-    <div class="mt-10 w-[40em]">
+    <div class="mt-10 w-[60em]">
       <h1 class="mb-10 p-4 text-center text-2xl font-bold">Diario tirocinio</h1>
       <InputForm @addActivity="addActivity" />
       <ActivityTable :activities="activities" />
@@ -32,4 +31,12 @@ export default defineComponent({
   </div>
 </template>
 
-<style></style>
+<style>
+body {
+  background: #02111b;
+}
+
+* {
+  color: white;
+}
+</style>
