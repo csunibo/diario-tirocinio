@@ -1,5 +1,6 @@
 export type Activity = {
-  Title: String
-  Duration: Number
-  Description: String
+  Id: number
+  Title: string
+  Duration: number
+  Description: string
 }
