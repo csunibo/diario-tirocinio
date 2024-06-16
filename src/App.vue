@@ -4,8 +4,8 @@ import InputForm from './components/InputForm.vue'
 
 <template>
   <div class="flex justify-center">
-    <div class="w-[40em] mt-10">
-      <h1 class="font-bold text-2xl p-4 text-center mb-10">Diario tirocinio</h1>
+    <div class="mt-10 w-[40em]">
+      <h1 class="mb-10 p-4 text-center text-2xl font-bold">Diario tirocinio</h1>
       <InputForm />
     </div>
   </div>

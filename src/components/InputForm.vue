@@ -15,11 +15,11 @@
 
       <div class="mt-5">
         <label for="description">Descrizione:</label>
-        <textarea class="block w-full border h-32 p-2 outline-none rounded"></textarea>
+        <textarea class="block h-32 w-full rounded border p-2 outline-none"></textarea>
       </div>
 
       <div class="flex justify-center">
-        <button class="m-5 border rounded p-2 w-20 bg-blue-300">Add</button>
+        <button class="m-5 w-20 rounded border bg-blue-300 p-2">Add</button>
       </div>
     </form>
   </div>
