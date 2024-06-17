@@ -62,10 +62,6 @@ export default defineComponent({
 </template>
 
 <style>
-body {
-  background: #02111b;
-}
-
 * {
   color: white;
 }

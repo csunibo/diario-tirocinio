@@ -26,7 +26,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="rounded-lg p-12" style="background-color: #0f1f2a">
+  <div class="rounded-lg p-12 bg-csunibo-light-blu">
     <form @submit.prevent="handleSubmit()">
       <div class="mt-5">
         <label for="title">Titolo: </label>

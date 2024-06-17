@@ -27,7 +27,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="bg-cyan-50 mt-4 p-12 rounded-lg" style="background-color: #0f1f2a">
+  <div class="mt-4 p-12 rounded-lg bg-csunibo-light-blu">
     <div class="flex justify-between">
       <h1 class="font-bold m-2 text-lg p-2">Total activities: {{ activities.length }}</h1>
       <h1 class="font-bold m-2 text-lg p-2">Total hours: {{ countHours() }}</h1>
