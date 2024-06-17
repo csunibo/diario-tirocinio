@@ -12,15 +12,29 @@ export default defineComponent({
       id: 0
     }
   },
+  mounted() {
+    let a = localStorage.getItem('activities')
+    if (a != null) {
+      this.activities = JSON.parse(a)
+    }
+  },
   methods: {
-    addActivity(title: String, time: Number, description: String) {
+    addActivity(title: string, time: number, description: string) {
       let a: Activity = { Id: this.id, Title: title, Duration: time, Description: description }
       this.id++
       this.activities.push(a)
+
+      this.updateLocalStorage()
     },
 
     removeActivity(id: Number) {
       this.activities = this.activities.filter((x) => x.Id !== id)
+
+      this.updateLocalStorage()
+    },
+
+    updateLocalStorage() {
+      localStorage.setItem('activities', JSON.stringify(this.activities))
     }
   },
   components: { InputForm, ActivityTable }
