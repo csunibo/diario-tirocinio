@@ -11,13 +11,16 @@ export default defineComponent({
       required: true
     }
   },
-  emits: ['removeActivity'],
+  emits: ['removeActivity', 'clearAll'],
   methods: {
     remove(id: Number) {
       this.$emit('removeActivity', id)
     },
     countHours() {
       return this.activities.reduce((acc, a) => a.Duration + acc, 0)
+    },
+    clearAll() {
+      this.$emit('clearAll')
     }
   }
 })
@@ -31,7 +34,7 @@ export default defineComponent({
     </div>
     <div
       v-for="a in activities"
-      class="p-2 m-2 bg-sky-100 rounded text-black flex flex-row justify-between"
+      class="p-2 mt-2 mb-2 bg-sky-100 rounded text-black flex flex-row justify-between"
     >
       <div class="flex-auto p-2">
         <div class="flex justify-between">
@@ -46,6 +49,11 @@ export default defineComponent({
           Delete
         </button>
       </div>
+    </div>
+    <div class="mt-4">
+      <button @click="clearAll" class="p-2 bg-red-500 rounded h-16 hover:bg-red-600">
+        REMOVE ALL
+      </button>
     </div>
   </div>
 </template>

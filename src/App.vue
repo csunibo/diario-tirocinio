@@ -33,6 +33,11 @@ export default defineComponent({
       this.updateLocalStorage()
     },
 
+    clearAll() {
+      this.activities = []
+      this.updateLocalStorage()
+    },
+
     updateLocalStorage() {
       localStorage.setItem('activities', JSON.stringify(this.activities))
     }
@@ -50,6 +55,7 @@ export default defineComponent({
         v-show="activities.length > 0"
         :activities="activities"
         @removeActivity="removeActivity"
+        @clearAll="clearAll"
       />
     </div>
   </div>
