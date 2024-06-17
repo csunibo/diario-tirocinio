@@ -1,6 +1,7 @@
 <script lang="ts">
 import InputForm from './components/InputForm.vue'
 import ActivityTable from './components/ActivityTable.vue'
+import ConvertionWindow from './components/ConvertionWindow.vue'
 
 import type { Activity } from './types.ts'
 import { defineComponent } from 'vue'
@@ -9,7 +10,8 @@ export default defineComponent({
   data() {
     return {
       activities: [] as Activity[],
-      id: 0
+      id: 0,
+      duringConversion: false
     }
   },
   mounted() {
@@ -29,7 +31,6 @@ export default defineComponent({
 
     removeActivity(id: Number) {
       this.activities = this.activities.filter((x) => x.Id !== id)
-
       this.updateLocalStorage()
     },
 
@@ -40,23 +41,61 @@ export default defineComponent({
 
     updateLocalStorage() {
       localStorage.setItem('activities', JSON.stringify(this.activities))
+    },
+
+    convert() {
+      console.log('RICHIESTA CONVERSIONE :)')
+    },
+
+    switchMode() {
+      if (this.activities.length <= 0) {
+        this.duringConversion = false
+      } else {
+        this.duringConversion = !this.duringConversion
+      }
     }
   },
-  components: { InputForm, ActivityTable }
+  components: { InputForm, ActivityTable, ConvertionWindow }
 })
 </script>
 
 <template>
-  <div class="flex justify-center">
-    <div class="mt-10 w-[60em]">
-      <h1 class="mb-10 p-4 text-center text-2xl font-bold">Diario tirocinio</h1>
-      <InputForm @addActivity="addActivity" />
-      <ActivityTable
-        v-show="activities.length > 0"
-        :activities="activities"
-        @removeActivity="removeActivity"
-        @clearAll="clearAll"
-      />
+  <div>
+    <div class="flex justify-center">
+      <div class="mt-10 w-[60em]">
+        <h1 class="mb-10 p-4 text-center text-2xl font-bold">Diario tirocinio</h1>
+        <div class="flex justify-between border-b-csunibo-dark-blu border-b-4">
+          <button
+            @click="switchMode"
+            :disabled="!duringConversion"
+            class="w-full p-4 rounded-tl-lg enabled:hover:bg-blue-400 font-bold"
+            :class="{ 'bg-csunibo-light-blu': duringConversion, 'bg-blue-500': !duringConversion }"
+          >
+            Insert
+          </button>
+          <button
+            @click="switchMode"
+            :disabled="duringConversion"
+            class="w-full p-4 rounded-tr-lg enabled:hover:bg-blue-400 font-bold"
+            :class="{ 'bg-csunibo-light-blu': !duringConversion, 'bg-blue-500': duringConversion }"
+          >
+            Convert
+          </button>
+        </div>
+        <div v-show="!duringConversion">
+          <InputForm @addActivity="addActivity" />
+          <ActivityTable
+            v-show="activities.length > 0"
+            :activities="activities"
+            @removeActivity="removeActivity"
+            @clearAll="clearAll"
+            @convert="convert"
+          />
+        </div>
+        <div v-show="duringConversion">
+          <ConvertionWindow :activities="activities" />
+        </div>
+      </div>
     </div>
   </div>
 </template>

@@ -11,7 +11,7 @@ export default defineComponent({
       required: true
     }
   },
-  emits: ['removeActivity', 'clearAll'],
+  emits: ['removeActivity', 'clearAll', 'convert'],
   methods: {
     remove(id: Number) {
       this.$emit('removeActivity', id)
@@ -21,6 +21,9 @@ export default defineComponent({
     },
     clearAll() {
       this.$emit('clearAll')
+    },
+    convert() {
+      this.$emit('convert')
     }
   }
 })
@@ -50,9 +53,13 @@ export default defineComponent({
         </button>
       </div>
     </div>
-    <div class="mt-4">
-      <button @click="clearAll" class="p-2 bg-red-500 rounded h-16 hover:bg-red-600">
+    <div class="mt-4 flex flex-row justify-between">
+      <button @click="clearAll" class="p-4 bg-red-500 rounded h-16 hover:bg-red-600">
         REMOVE ALL
+      </button>
+
+      <button @click="convert" class="p-4 bg-blue-500 rounded h-16 hover:bg-blue-600">
+        Convert
       </button>
     </div>
   </div>
