@@ -41,7 +41,7 @@ export default defineComponent({
       <CodeBox>
         {{ toSimpleJson() }}
       </CodeBox>
-      <h1 class="font-bold m-b-2 text-lg mb-2">LaTeX:</h1>
+      <h1 class="font-bold m-b-2 text-lg mb-2 mt-5">LaTeX:</h1>
       <CodeBox>
         {{ toLatex() }}
       </CodeBox>
