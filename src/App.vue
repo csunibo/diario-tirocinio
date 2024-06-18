@@ -68,7 +68,8 @@ export default defineComponent({
   <div>
     <div class="flex justify-center">
       <div class="mt-10 w-[60em]">
-        <h1 class="mb-10 p-4 text-center text-2xl font-bold">Diario tirocinio</h1>
+        <h1 class="p-2 text-center text-3xl font-bold">Diario tirocinio</h1>
+        <h3 class="text-center mb-10">Riassumi velocemente il tuo tirocinio</h3>
         <div class="flex justify-between border-b-csunibo-dark-blu border-b-4">
           <button
             @click="switchMode"
