@@ -29,25 +29,30 @@ export default defineComponent({
       this.updateLocalStorage()
     },
 
-    removeActivity(id: Number) {
+    removeActivity(id: Number): void {
       this.activities = this.activities.filter((x) => x.Id !== id)
       this.updateLocalStorage()
     },
 
-    clearAll() {
+    clearAll(): void {
       this.activities = []
       this.updateLocalStorage()
     },
 
-    updateLocalStorage() {
+    updateLocalStorage(): void {
       localStorage.setItem('activities', JSON.stringify(this.activities))
     },
 
-    convert() {
+    convert(): void {
       console.log('RICHIESTA CONVERSIONE :)')
     },
 
-    switchMode() {
+    canConvert(): boolean {
+      console.log(this.activities.length)
+      return this.activities.length > 0
+    },
+
+    switchMode(): void {
       if (this.activities.length <= 0) {
         this.duringConversion = false
       } else {
@@ -75,9 +80,14 @@ export default defineComponent({
           </button>
           <button
             @click="switchMode"
-            :disabled="duringConversion"
-            class="w-full p-4 rounded-tr-lg enabled:hover:bg-blue-400 font-bold"
-            :class="{ 'bg-csunibo-light-blu': !duringConversion, 'bg-blue-500': duringConversion }"
+            :disabled="duringConversion || !canConvert()"
+            class="w-full p-4 rounded-tr-lg font-bold"
+            :class="{
+              'bg-csunibo-light-blu': !duringConversion,
+              'bg-blue-500': duringConversion,
+              'enabled:hover:bg-blue-400': canConvert(),
+              'opacity-50': !canConvert()
+            }"
           >
             Convert
           </button>
