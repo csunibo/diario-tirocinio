@@ -48,7 +48,6 @@ export default defineComponent({
     },
 
     canConvert(): boolean {
-      console.log(this.activities.length)
       return this.activities.length > 0
     },
 
