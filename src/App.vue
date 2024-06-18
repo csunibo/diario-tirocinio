@@ -44,7 +44,8 @@ export default defineComponent({
     },
 
     convert(): void {
-      console.log('RICHIESTA CONVERSIONE :)')
+      this.switchMode()
+      window.scrollTo(0, 0)
     },
 
     canConvert(): boolean {

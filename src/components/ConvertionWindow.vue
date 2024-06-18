@@ -3,6 +3,9 @@ import { defineComponent, type PropType } from 'vue'
 import type { Activity } from '@/types'
 import CodeBox from './CodeBox.vue'
 
+import { jsPDF } from 'jspdf'
+import autoTable from 'jspdf-autotable'
+
 export default defineComponent({
   props: {
     activities: {
@@ -28,6 +31,17 @@ export default defineComponent({
       })
 
       return res + foot
+    },
+    generatePDF() {
+      var doc = new jsPDF()
+      var head = [['Titolo', 'Attività', 'Ore']]
+      var body: string[][] = []
+
+      this.activities.forEach((e) => {
+        body.push([e.Title, e.Description, e.Duration.toString()])
+      })
+      autoTable(doc, { head: head, body: body })
+      doc.save('diario-tirocinio.pdf')
     }
   },
   components: { CodeBox }
@@ -37,11 +51,15 @@ export default defineComponent({
 <template>
   <div class="h-full">
     <div class="bg-csunibo-light-blu rounded-b-lg p-12">
+      <h1 class="font-bold m-b-2 text-lg mb-2">PDF:</h1>
+      <button @click="generatePDF" class="bg-blue-500 rounded p-5 mb-10 hover:bg-blue-400">
+        Download PDF
+      </button>
       <h1 class="font-bold m-b-2 text-lg mb-2">JSON:</h1>
       <CodeBox>
         {{ toSimpleJson() }}
       </CodeBox>
-      <h1 class="font-bold m-b-2 text-lg mb-2 mt-5">LaTeX:</h1>
+      <h1 class="font-bold m-b-2 text-lg mb-2 mt-10">LaTeX:</h1>
       <CodeBox>
         {{ toLatex() }}
       </CodeBox>
