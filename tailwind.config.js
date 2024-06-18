@@ -8,7 +8,8 @@ export default {
     extend: {
       colors: {
         'csunibo-light-blu': '#0f1f2a',
-        'csunibo-dark-blu': '#02111b'
+        'csunibo-dark-blu': '#02111b',
+        'csunibo-dark-grey': '#c5c9cc'
       },
     },
   },
