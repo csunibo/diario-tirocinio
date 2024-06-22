@@ -22,6 +22,10 @@ export default defineComponent({
             lavoro svolto da trascrivere successivamente sul documento ufficiale fornitosi dalla
             piattaforma tirocini unibo.
           </p>
+          <p class="m-5 p-5 bg-red-500/[0.8] rounded-lg">
+            <b>NOTA tecnica:</b> I dati sono salvati sul local-storage. Se si cancella la cache del
+            browser veranno persi.
+          </p>
         </div>
         <div>
           <a
