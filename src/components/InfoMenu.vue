@@ -7,14 +7,19 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="fixed top-0 left-0 w-full h-full">
-    <div @click="$emit('close')" class="w-full h-full">
+  <div>
+    <div class="w-full h-full">
       <div
         @click.stop=""
         class="bg-csunibo-light-blu w-80 h-full shadow-2xl border-black flex flex-col justify-between"
       >
-        <div class="pl-5 pr-5">
-          <h1 class="font-bold text-center text-xl p-5 border-b border-b-white">INFO</h1>
+        <div class="pl-5 flex justify-between align-center border-b border-b-white mx-4">
+          <h1 class="font-bold text-center text-xl p-5">INFO</h1>
+          <div class="grid items-center">
+            <button @click="$emit('close')" class="w-8 h-8 rounded hover:bg-white/20">
+              <span class="icon-[solar--alt-arrow-left-outline] block h-full w-full"></span>
+            </button>
+          </div>
         </div>
         <div>
           <p class="m-5 p-5 bg-blue-500/[0.8] rounded-lg">

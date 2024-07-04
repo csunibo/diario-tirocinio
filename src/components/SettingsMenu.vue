@@ -16,14 +16,19 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="fixed top-0 right-0 w-full h-full">
+  <div>
     <div @click="$emit('close')" class="w-full h-full">
       <div
         @click.stop=""
         class="bg-csunibo-light-blu w-80 h-full shadow-2xl border-black float-right"
       >
-        <div class="pl-5 pr-5 mb-10">
-          <h1 class="font-bold text-center text-xl p-5 border-b-white border-b">SETTINGS</h1>
+        <div class="pr-5 mb-10 flex justify-between border-b-white border-b mx-4">
+          <div class="grid items-center">
+            <button @click="$emit('close')" class="w-8 h-8 rounded hover:bg-white/20">
+              <span class="icon-[solar--alt-arrow-right-outline] block h-full w-full"></span>
+            </button>
+          </div>
+          <h1 class="font-bold text-center text-xl p-5">SETTINGS</h1>
         </div>
         <div class="p-5">
           <label class="inline-flex items-center cursor-pointer">

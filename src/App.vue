@@ -115,14 +115,22 @@ export default defineComponent({
     <div>
       <div class="flex justify-between absolute top-0 w-full p-10">
         <button @click="showInfo = !showInfo">
-          <span class="icon-[solar--info-square-linear] text-3xl"></span>
+          <span class="icon-[solar--hamburger-menu-linear] text-3xl"></span>
         </button>
         <button @click="showSettings = !showSettings">
           <span class="icon-[solar--settings-outline] text-3xl"></span>
         </button>
       </div>
-      <InfoMenu @close="showInfo = false" v-show="showInfo" />
-      <SettingsMenu @close="showSettings = false" v-show="showSettings" />
+      <InfoMenu
+        @close="showInfo = false"
+        class="menu"
+        :class="{ 'left-[-20rem]': !showInfo, 'left-0': showInfo }"
+      />
+      <SettingsMenu
+        @close="showSettings = false"
+        class="menu"
+        :class="{ 'right-[-20rem]': !showSettings, 'right-0': showSettings }"
+      />
     </div>
   </div>
 </template>
@@ -130,5 +138,12 @@ export default defineComponent({
 <style>
 * {
   color: white;
+}
+
+.menu {
+  position: fixed;
+  height: 100%;
+  top: 0;
+  transition: all 1s;
 }
 </style>
