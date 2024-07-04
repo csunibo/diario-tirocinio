@@ -43,7 +43,6 @@ export default defineComponent({
         <div class="flex justify-between">
           <h1 class="text-black inline">Title: {{ a.Title }}</h1>
           <span class="text-black">Duration: {{ a.Duration }}</span>
-          <span class="text-black">ID: {{ a.Id }}</span>
         </div>
         <p class="text-black whitespace-pre-line">{{ a.Description }}</p>
       </div>
