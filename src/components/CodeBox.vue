@@ -4,7 +4,8 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   methods: {
     copy() {
-      navigator.clipboard.writeText(this.$refs.codeContainer.textContent)
+      console.log(this.$refs)
+      navigator.clipboard.writeText((this.$refs.codeContainer as HTMLElement).textContent || '')
     }
   }
 })
