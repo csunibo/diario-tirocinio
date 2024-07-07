@@ -1,5 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { useStore } from '@/store'
 
 export default defineComponent({
   data() {
@@ -7,7 +8,8 @@ export default defineComponent({
       tmpTitle: '',
       tmpTime: 1,
       tmpDescription: '',
-      submittedOnce: false
+      submittedOnce: false,
+      settings: useStore()
     }
   },
   emits: ['addActivity'],
@@ -46,12 +48,15 @@ export default defineComponent({
 
       <div class="mt-5">
         <label>Ore:</label>
-        <input
-          v-model="tmpTime"
-          type="number"
-          min="1"
-          class="rounded border p-2 bg-sky-100 text-black invalid:border-red-200 invalid:border invalid:bg-red-100"
-        />
+        <div v-if="!settings.state.timeAsButton">
+          <input
+            v-model="tmpTime"
+            type="number"
+            min="1"
+            class="rounded border p-2 bg-sky-100 text-black invalid:border-red-200 invalid:border invalid:bg-red-100"
+          />
+        </div>
+        <div v-else class="text-yellow-500">WORK IN PROGRESS</div>
       </div>
 
       <div class="mt-5">
