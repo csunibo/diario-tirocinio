@@ -56,7 +56,19 @@ export default defineComponent({
             class="rounded border p-2 bg-sky-100 text-black invalid:border-red-200 invalid:border invalid:bg-red-100"
           />
         </div>
-        <div v-else class="text-yellow-500">WORK IN PROGRESS</div>
+        <div v-else class="text-yellow-500">
+          <div class="flex justify-between gap-2">
+            <button
+              type="button"
+              v-for="n in Array.from(Array(10), (_, i) => i + 1)"
+              class="border w-full hover:bg-blue-500 rounded p-2"
+              :class="{ 'bg-blue-500': tmpTime == n }"
+              @click="tmpTime = n"
+            >
+              {{ n }}
+            </button>
+          </div>
+        </div>
       </div>
 
       <div class="mt-5">
