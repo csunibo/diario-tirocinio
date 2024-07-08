@@ -9,7 +9,7 @@ export default defineComponent({
       timeAsButton: false
     }
   },
-  onMount() {
+  created() {
     this.timeAsButton = this.settings.state.timeAsButton
   },
   emits: ['close'],
@@ -41,7 +41,7 @@ export default defineComponent({
           <label class="inline-flex items-center cursor-pointer">
             <input
               type="checkbox"
-              :value="timeAsButton"
+              :checked="timeAsButton"
               @click="toggleSettings()"
               class="sr-only peer"
             />

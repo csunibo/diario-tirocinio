@@ -8,6 +8,8 @@ import SettingsMenu from './components/SettingsMenu.vue'
 import type { Activity } from './types.ts'
 import { defineComponent } from 'vue'
 
+import { useStore } from '@/store'
+
 export default defineComponent({
   data() {
     return {
@@ -17,6 +19,9 @@ export default defineComponent({
       showInfo: false,
       showSettings: false
     }
+  },
+  beforeMount() {
+    useStore().commit('init')
   },
   mounted() {
     let a = localStorage.getItem('activities')

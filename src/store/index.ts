@@ -9,9 +9,16 @@ export const key: InjectionKey<Store<State>> = Symbol()
 
 export const storeSettings = createStore<State>({
   state: {
-    timeAsButton: false
+    timeAsButton: true
   },
   mutations: {
+    init(state) {
+      if (localStorage.getItem('timeAsButton')) {
+        state.timeAsButton = JSON.parse(localStorage.timeAsButton)
+      } else {
+        state.timeAsButton = true
+      }
+    },
     timeAsButtonToggle(state) {
       state.timeAsButton = !state.timeAsButton
     }
