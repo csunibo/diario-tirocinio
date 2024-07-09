@@ -8,10 +8,10 @@ export default defineComponent({
 
 <template>
   <div>
-    <div class="w-full h-full">
+    <div class="w-full h-full overflow-scroll">
       <div
         @click.stop=""
-        class="bg-csunibo-light-blu w-80 h-full shadow-2xl border-black flex flex-col justify-between"
+        class="bg-csunibo-light-blu w-80 h-full shadow-2xl border-black flex flex-col justify-between overflow-auto"
       >
         <div class="pl-5 flex justify-between align-center border-b border-b-white mx-4">
           <h1 class="font-bold text-center text-xl p-5">INFO</h1>
