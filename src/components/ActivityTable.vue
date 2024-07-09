@@ -42,13 +42,13 @@ export default defineComponent({
       <div class="flex-auto p-2">
         <div class="flex justify-between">
           <h1 class="text-black inline">Title: {{ a.Title }}</h1>
-          <span class="text-black">Duration: {{ a.Duration }}</span>
+          <span class="text-black">Duration: {{ a.Duration }}h</span>
         </div>
         <p class="text-black whitespace-pre-line">{{ a.Description }}</p>
       </div>
-      <div class="flex items-center">
+      <div class="flex items-center ml-2">
         <button class="p-2 bg-red-400 rounded h-16 hover:bg-red-500" @click="remove(a.Id)">
-          Delete
+          <span class="icon-[solar--trash-bin-trash-linear] text-2xl"></span>
         </button>
       </div>
     </div>
