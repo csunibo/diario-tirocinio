@@ -77,8 +77,18 @@ export default defineComponent({
   <div>
     <div class="flex justify-center">
       <div class="mt-10 w-[60em]">
+        <div class="flex justify-between sm:absolute sm:top-0 sm:right-0 w-full px-10 mt-10 mb-2">
+          <button @click="showInfo = !showInfo">
+            <span class="icon-[solar--hamburger-menu-linear] text-3xl"></span>
+          </button>
+          <button @click="showSettings = !showSettings">
+            <span class="icon-[solar--settings-outline] text-3xl"></span>
+          </button>
+        </div>
+
         <h1 class="p-2 text-center text-3xl font-bold">Diario tirocinio</h1>
         <h3 class="text-center mb-10">Riassumi velocemente il tuo tirocinio</h3>
+
         <div class="flex justify-between border-b-csunibo-dark-blu border-b-4">
           <button
             @click="switchMode"
@@ -118,14 +128,6 @@ export default defineComponent({
       </div>
     </div>
     <div>
-      <div class="flex justify-between absolute top-0 w-full p-10">
-        <button @click="showInfo = !showInfo">
-          <span class="icon-[solar--hamburger-menu-linear] text-3xl"></span>
-        </button>
-        <button @click="showSettings = !showSettings">
-          <span class="icon-[solar--settings-outline] text-3xl"></span>
-        </button>
-      </div>
       <InfoMenu
         @close="showInfo = false"
         class="menu"
