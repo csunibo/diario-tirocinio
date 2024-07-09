@@ -16,7 +16,7 @@ export const storeSettings = createStore<State>({
       if (localStorage.getItem('timeAsButton')) {
         state.timeAsButton = JSON.parse(localStorage.timeAsButton)
       } else {
-        state.timeAsButton = true
+        state.timeAsButton = false
       }
     },
     timeAsButtonToggle(state) {
