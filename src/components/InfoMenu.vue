@@ -8,7 +8,7 @@ export default defineComponent({
 
 <template>
   <div>
-    <div class="w-full h-full overflow-scroll">
+    <div class="w-full h-full overflow-auto">
       <div
         @click.stop=""
         class="bg-csunibo-light-blu w-80 h-full shadow-2xl border-black flex flex-col justify-between overflow-auto"
